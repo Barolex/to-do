@@ -1,20 +1,22 @@
-import PropTypes from "prop-types"
-import Button from "@mui/material/Button";
+import PropTypes from "prop-types";
 import Box from "@mui/material/Box";
+import { MainButton } from "./MainButton";
 
-export const Header = ({title}) => {
-    return (
-      <Box >
-        <h1>{title}</h1>
-        <Button variant="outlined" color="success">Add</Button>
-      </Box>
-    );
-}
+// ENF
+
+export const Header = ({ title }) => {
+  return (
+    <Box>
+      <h1>{title}</h1>
+      <MainButton text="Add" color="success" />
+    </Box>
+  );
+};
 
 Header.defaultProps = {
-    title: "Default title"
-}
+  title: "Default title",
+};
 
 Header.propTypes = {
-    title: PropTypes.string
-}
+  title: PropTypes.string,
+};
