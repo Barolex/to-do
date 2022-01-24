@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
 import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
 import { MainButton } from "./MainButton";
 
 // ENF
@@ -7,18 +7,14 @@ import { MainButton } from "./MainButton";
 export const Header = ({ title }) => {
   return (
     <Box>
-      <h1>{title}</h1>
-
-      <MainButton text="Add" color="success" />
-
+      <Grid container justifyContent={"space-around"}>
+        <Grid item>
+          <h1>{title}</h1>
+        </Grid>
+        <Grid item mt={3}>
+          <MainButton text="Add" color="success" />
+        </Grid>
+      </Grid>
     </Box>
   );
-};
-
-Header.defaultProps = {
-  title: "Default title",
-};
-
-Header.propTypes = {
-  title: PropTypes.string,
 };
