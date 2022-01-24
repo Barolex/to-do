@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import { Typography } from "@mui/material";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 
-export const Task = ({ task }) => {
+export const Task = ({ task, onDelete }) => {
   return (
     <Box
       sx={{
@@ -16,7 +16,7 @@ export const Task = ({ task }) => {
       }}
     >
       <Typography variant="h6" fontSize="medium">
-        {task.assignment} <DeleteOutlineOutlinedIcon/>
+        {task.assignment} <DeleteOutlineOutlinedIcon onClick={() => onDelete(task.id)}/>
       </Typography>
     </Box>
   );
