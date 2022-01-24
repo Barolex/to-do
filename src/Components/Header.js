@@ -1,14 +1,16 @@
 import PropTypes from "prop-types";
-import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
+import { MainButton } from "./MainButton";
+
+// ENF
 
 export const Header = ({ title }) => {
   return (
     <Box>
       <h1>{title}</h1>
-      <Button variant="outlined" color="success">
-        Add
-      </Button>
+
+      <MainButton text="Add" color="success" />
+
     </Box>
   );
 };
