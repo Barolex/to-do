@@ -5,30 +5,43 @@ import "./styles.css";
 
 import { Header } from "./Components/Header";
 import { Tasks } from "./Components/Tasks";
+import { AddTask } from "./Components/AddTask";
 
 // Implement a calendar (React Dates) to select a date and an hour (moment)
+// Implement dark / light mode
+// Add SnackBar to Add Task in the if
 
 function App() {
   const [tasks, setTasks] = useState([
     {
       id: 1,
-      title: "First title",
-      assignment: "Do laundry",
-      reminder: true
+      text: "First title",
+      day: "Do laundry",
+      reminder: true,
     },
     {
       id: 2,
-      title: "Second title",
-      assignment: "Do dishes",
-      reminder: true
+      text: "Second title",
+      day: "Do dishes",
+      reminder: true,
     },
   ]);
+
+  // Add task
+
+  const addTask = (task) => {
+    const id = Math.floor(Math.random() * 10000) + 1;
+    const newTask = { id, ...task };
+    setTasks([...tasks, newTask])
+  };
 
   // Delete task
 
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id));
   };
+
+  // Toggle reminder
 
   const toggleReminder = (id) => {
     setTasks(
@@ -52,6 +65,7 @@ function App() {
             }}
           >
             <Header title="To-Do List" />
+            <AddTask onAdd={addTask} />
             {tasks.length > 0 ? (
               <Tasks
                 tasks={tasks}
