@@ -8,29 +8,40 @@ import "../styles.css";
 export const Task = ({ task, onDelete, onToggle }) => {
 
   return (
-    <Box
-      sx={{
-        textAlign: "center",
-        backgroundColor: "whitesmoke",
-        m: 3,
-        textAlign: "start",
-        width: "70%",
-        height: 30,
-        borderRadius: 0.5,
-      }}
-      className={`${task.reminder ? "reminder" : ""}`}
+    <div
+      className={`task ${task.reminder && "reminder"}`}
       onDoubleClick={() => onToggle(task.id)}
     >
-      <Grid container justifyContent={"space-around"}>
-        <Grid item>
-          <Typography variant="h6" fontSize="medium">
-            {task.assignment}
-          </Typography>
-        </Grid>
-        <Grid item mt={0.2}>
-          <DeleteOutlineOutlinedIcon color="error" onClick={() => onDelete(task.id)} />
-        </Grid>
-      </Grid>
-    </Box>
+      <h6>
+        {task.text}
+        <DeleteOutlineOutlinedIcon
+          style={{ color: "red", cursor: "pointer" }}
+          onClick={() => onDelete(task.id)}
+        />
+      </h6>
+      <p>{task.day}</p>
+    </div>
+    // <Box
+    //   sx={{
+    //     backgroundColor: "whitesmoke",
+    //     m: 3,
+    //     width: "70%",
+    //     height: 30,
+    //     borderRadius: 0.5,
+    //   }}
+    //   className={`${task.reminder ? "reminder" : ""}`}
+    //   onDoubleClick={() => onToggle(task.id)}
+    // >
+    //   <Grid container justifyContent={"space-around"}>
+    //     <Grid item>
+    //       <Typography variant="h6" fontSize="medium">
+    //         {task.assignment}
+    //       </Typography>
+    //     </Grid>
+    //     <Grid item mt={0.2}>
+    //       <DeleteOutlineOutlinedIcon color="error" onClick={() => onDelete(task.id)} />
+    //     </Grid>
+    //   </Grid>
+    // </Box>
   );
 };
